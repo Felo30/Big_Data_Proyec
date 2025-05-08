@@ -3,7 +3,8 @@
 ##########################
 services:
   jupyter:
-    image: jupyter/base-notebook:python-3.11
+    build:
+      context: ./servicios/jupyter
     container_name: jupyter_bigdata
     ports:
       - "8888:8888"
@@ -19,3 +20,4 @@ services:
 networks:
   red_bigdata:
     external: true
+
