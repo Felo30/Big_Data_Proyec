@@ -6,6 +6,7 @@ docker compose \
   -f docker-compose.postgres.yml \
   -f docker-compose.minio.yml \
   -f docker-compose.jupyter.yml \
+  -f docker-compose.spark.yml \
   down
 
 echo "Contenedores detenidos con éxito."

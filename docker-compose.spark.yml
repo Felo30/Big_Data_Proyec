@@ -1,0 +1,18 @@
+######################
+# Servicio: Spark    #
+######################
+services:
+  spark:
+    image: bitnami/spark:3.5
+    container_name: spark_bigdata
+    environment:
+      - SPARK_MODE=master
+    ports:
+      - "7077:7077"   # Spark Master
+      - "8080:8080"   # Spark UI
+    networks:
+      - red_bigdata
+
+networks:
+  red_bigdata:
+    external: true
