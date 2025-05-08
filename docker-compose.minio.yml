@@ -1,0 +1,26 @@
+#######################
+# Servicio: MinIO     #
+#######################
+
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: minio_bigdata
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"  # API
+      - "9001:9001"  # Consola web
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    volumes:
+      - minio_data:/data
+    networks:
+      - red_bigdata
+
+volumes:
+  minio_data:
+
+networks:
+  red_bigdata:
+    external: true

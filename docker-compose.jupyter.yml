@@ -1,0 +1,21 @@
+##########################
+# Servicio: Jupyter Lab  #
+##########################
+services:
+  jupyter:
+    image: jupyter/base-notebook:python-3.11
+    container_name: jupyter_bigdata
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./datos:/home/jovyan/datos
+    environment:
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN}
+    command: start-notebook.sh --NotebookApp.token=${JUPYTER_TOKEN}
+    networks:
+      - red_bigdata
+
+networks:
+  red_bigdata:
+    external: true
