@@ -16,7 +16,10 @@ RUN pip install --no-cache-dir \
     python-dotenv \
     ipykernel \
     pyspark \
-    findspark
+    findspark \
+    pyarrow
+
+
 
 
 
