@@ -36,34 +36,34 @@ from pathlib import Path
 # PASO 2: CARGA DE VARIABLES DE ENTORNO
 # ================================================================================
 
-# Cargar las variables definidas en el archivo .env
+#Cargar las variables definidas en el archivo .env
 load_dotenv("/home/jovyan/.env")
 
-# Ruta local del archivo a cargar
+#Ruta local del archivo a cargar
 ruta_csv_local     = "/home/jovyan/datos/csv/pacientes_crudo.csv"
 
-# Parámetros MinIO
+#Parámetros MinIO
 MINIO_ENDPOINT     = os.getenv("MINIO_ENDPOINT")
 MINIO_ACCESS_KEY   = os.getenv("MINIO_ROOT_USER")
 MINIO_SECRET_KEY   = os.getenv("MINIO_ROOT_PASSWORD")
 BUCKET_BRONZE      = os.getenv("MINIO_BUCKET_BRONZE")
 
-# ===> Nombre base del archivo (sin extensión)
+#Nombre base del archivo (sin extensión)
 nombre_archivo_base = Path(ruta_csv_local).stem 
 
-# ===> Dominio extraído del nombre: lo que esté antes del guion bajo
+#Dominio extraído del nombre: lo que esté antes del guion bajo
 dominio = nombre_archivo_base.split("_")[0].lower()  
 
-# ===> Carpeta MinIO: siempre LOCAL_{dominio.upper()}
+#Carpeta MinIO: siempre LOCAL_{dominio.upper()}
 carpeta_destino = f"LOCAL_{dominio.upper()}" 
 
-# ===> Timestamp actual
+#Timestamp actual
 timestamp = datetime.now().strftime("%Y%m%d%H%M")
 
-# ===> Nombre final del archivo
+#Nombre final del archivo
 nombre_archivo = f"{nombre_archivo_base}_{timestamp}.csv"  
 
-# ===> Ruta final en MinIO (clave)
+# Ruta final en MinIO 
 key_minio = f"{carpeta_destino}/{nombre_archivo}"
 
 # %%
