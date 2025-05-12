@@ -4,12 +4,9 @@ services:
     container_name: spark_bigdata
     environment:
       - SPARK_MODE=master
-      - SPARK_EXTRA_CLASSPATH=/opt/spark_jars/*
     ports:
       - "7077:7077"
       - "8080:8080"
-    volumes:
-      - ./spark/jars:/opt/spark_jars
     networks:
       - red_bigdata
 

@@ -12,8 +12,6 @@ services:
       - ./notebooks:/home/jovyan/work
       - ./datos:/home/jovyan/datos
       - ./.env:/home/jovyan/.env
-      - ./spark_jars:/home/jovyan/jars
-
     environment:
       - JUPYTER_TOKEN=${JUPYTER_TOKEN}
     command: start-notebook.sh --NotebookApp.token=${JUPYTER_TOKEN}
