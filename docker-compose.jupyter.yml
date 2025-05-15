@@ -12,9 +12,19 @@ services:
       - ./notebooks:/home/jovyan/work
       - ./datos:/home/jovyan/datos
       - ./.env:/home/jovyan/.env
+      - ./pipelines:/home/jovyan/pipelines
     environment:
       - JUPYTER_TOKEN=${JUPYTER_TOKEN}
+      - AWS_ACCESS_KEY_ID=${MINIO_ROOT_USER}
+      - AWS_SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD}
+      - JAVA_HOME=/usr/lib/jvm/default-java
+      - PYSPARK_PYTHON=python
+      - PYSPARK_DRIVER_PYTHON=python
+      - DB_URL=${DB_URL}
     command: start-notebook.sh --NotebookApp.token=${JUPYTER_TOKEN}
+    depends_on:
+      - minio
+      - postgres
     networks:
       - red_bigdata
 
