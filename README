@@ -1,0 +1,137 @@
+# 📘 Proyecto Big Data - Plataforma por Capas (Bronze, Silver, Diamond, Gold)
+
+Este proyecto implementa un flujo completo de procesamiento de datos utilizando Apache Spark, MinIO y PostgreSQL organizados en capas: `bronze`, `silver`, `diamond` y `gold`.
+
+---
+
+## 🔧 Servicios
+
+Se utilizan los siguientes servicios dentro de contenedores Docker:
+
+* 🐍 **Jupyter** (Python 3.11 + Spark)
+* 🐘 **PostgreSQL 15**
+* 🪣 **MinIO** (almacenamiento de objetos compatible con S3)
+* 🔥 **Spark** (modo master/worker)
+
+---
+
+## ▶️ Cómo levantar y apagar el proyecto
+
+### Levantar contenedores:
+
+```bash
+bash up.sh
+```
+
+### Detener contenedores:
+
+```bash
+bash down.sh
+```
+
+---
+
+## 📂 Estructura de Carpetas
+
+```bash
+infraestructura/          # Scripts de setup (buckets, mover archivos)
+notebooks/                # Exploración y validación desde JupyterLab
+pipelines/ingesta/        # Carga inicial a MinIO (bronze) y PostgreSQL (diamond)
+servicios/jupyter/        # Dockerfile de Jupyter con Spark + JARs + librerías
+transformacion/           # Transformaciones silver y diamond con Spark
+```
+
+---
+
+## ⚙️ Consideraciones de Entorno y Kernel
+
+* Todos los scripts `.py` se ejecutan **dentro del contenedor** `jupyter_bigdata`.
+* El entorno de ejecución es **Python 3.11** con Spark 3.5 preconfigurado.
+* Para correr scripts directamente:
+
+```bash
+docker exec -it jupyter_bigdata python /home/jovyan/pipelines/ingesta/guardar_csv_bronze.py
+```
+
+* Para notebooks `.ipynb`, acceder a Jupyter en:
+
+```
+http://localhost:8888
+```
+
+* El kernel correcto debe ser:
+
+```
+Python [conda env: base] *
+```
+
+* Las rutas internas están basadas en `/home/jovyan/`, por ejemplo:
+
+```python
+/home/jovyan/datos/csv/pacientes_crudo.csv
+```
+
+---
+
+## ✅ Capas de Procesamiento
+
+### 🟤 Bronze
+
+* Lectura de archivos CSV locales con Spark.
+* Almacenamiento directo en MinIO (`s3a://dev-bronze/`) sin pasar por Pandas.
+* Scripts:
+
+  * `guardar_csv_bronze.py`
+
+### ⚪ Silver
+
+* Lectura de archivos de Bronze con Spark.
+* Validaciones, limpieza y transformación de campos.
+* Escritura en formato Parquet (`s3a://dev-silver/`).
+* Scripts:
+
+  * `transformar_datos_silver.py`
+
+### 💎 Diamond
+
+* Lectura del archivo Parquet más reciente desde Silver.
+* Inserción de datos a PostgreSQL (creación dinámica de tabla si no existe).
+* Backup del archivo transformado en MinIO (`s3a://dev-diamond/`).
+* Scripts:
+
+  * `refinar_datos_diamond.py`
+
+### 🟡 Gold
+
+* (Opcional) Podés agregar tus consultas o transformaciones analíticas.
+
+---
+
+## 📦 Buckets en MinIO
+
+| Bucket        | Propósito                          |
+| ------------- | ---------------------------------- |
+| `dev-bronze`  | Archivos crudos CSV                |
+| `dev-silver`  | Datos transformados Parquet        |
+| `dev-diamond` | Respaldos + insumo para PostgreSQL |
+| `dev-gold`    | Reportes, dashboards finales       |
+
+---
+
+## 📥 PostgreSQL
+
+* Cada ejecución crea una tabla con nombre derivado del dominio + `_diamond`.
+  Por ejemplo: `pacientes_diamond`
+
+* Inserción mediante COPY desde un archivo CSV temporal generado por Spark.
+
+---
+
+## 📌 Notas Finales
+
+* El archivo `.env` contiene todas las variables necesarias para MinIO, PostgreSQL, y rutas internas.
+* Los scripts están modularizados por etapa: ingesta, transformación, backup.
+
+---
+
+🧠 Proyecto mantenido por Félix Cárdenas - 2025
