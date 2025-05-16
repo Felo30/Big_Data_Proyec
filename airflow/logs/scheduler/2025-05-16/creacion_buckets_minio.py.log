@@ -1,0 +1,154 @@
+[2025-05-16T21:42:57.163+0000] {processor.py:161} INFO - Started process (PID=231) to work on /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:42:57.164+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/creacion_buckets_minio.py for tasks to queue
+[2025-05-16T21:42:57.165+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:42:57.165+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:42:57.248+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:42:57.246+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/creacion_buckets_minio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/creacion_buckets_minio.py", line 6, in <module>
+    from crear_buckets_minio import run_creacion_buckets
+ImportError: cannot import name 'run_creacion_buckets' from 'crear_buckets_minio' (/opt/airflow/project/infraestructura/crear_buckets_minio.py)
+[2025-05-16T21:42:57.249+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:42:57.266+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/creacion_buckets_minio.py took 0.108 seconds
+[2025-05-16T21:43:27.319+0000] {processor.py:161} INFO - Started process (PID=236) to work on /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:43:27.320+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/creacion_buckets_minio.py for tasks to queue
+[2025-05-16T21:43:27.321+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:43:27.321+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:43:27.387+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:43:27.384+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/creacion_buckets_minio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/creacion_buckets_minio.py", line 6, in <module>
+    from crear_buckets_minio import run_creacion_buckets
+ImportError: cannot import name 'run_creacion_buckets' from 'crear_buckets_minio' (/opt/airflow/project/infraestructura/crear_buckets_minio.py)
+[2025-05-16T21:43:27.388+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:43:27.543+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/creacion_buckets_minio.py took 0.228 seconds
+[2025-05-16T21:43:57.678+0000] {processor.py:161} INFO - Started process (PID=242) to work on /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:43:57.679+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/creacion_buckets_minio.py for tasks to queue
+[2025-05-16T21:43:57.679+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:43:57.679+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:43:57.863+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:43:57.860+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/creacion_buckets_minio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/creacion_buckets_minio.py", line 6, in <module>
+    from crear_buckets_minio import run_creacion_buckets
+ImportError: cannot import name 'run_creacion_buckets' from 'crear_buckets_minio' (/opt/airflow/project/infraestructura/crear_buckets_minio.py)
+[2025-05-16T21:43:57.864+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:43:57.880+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/creacion_buckets_minio.py took 0.206 seconds
+[2025-05-16T21:44:28.012+0000] {processor.py:161} INFO - Started process (PID=247) to work on /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:44:28.013+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/creacion_buckets_minio.py for tasks to queue
+[2025-05-16T21:44:28.014+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:44:28.014+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:44:28.208+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:44:28.205+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/creacion_buckets_minio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/creacion_buckets_minio.py", line 6, in <module>
+    from crear_buckets_minio import run_creacion_buckets
+ImportError: cannot import name 'run_creacion_buckets' from 'crear_buckets_minio' (/opt/airflow/project/infraestructura/crear_buckets_minio.py)
+[2025-05-16T21:44:28.209+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:44:28.224+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/creacion_buckets_minio.py took 0.216 seconds
+[2025-05-16T21:44:58.360+0000] {processor.py:161} INFO - Started process (PID=252) to work on /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:44:58.361+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/creacion_buckets_minio.py for tasks to queue
+[2025-05-16T21:44:58.362+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:44:58.361+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:44:58.552+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:44:58.549+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/creacion_buckets_minio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/creacion_buckets_minio.py", line 6, in <module>
+    from crear_buckets_minio import run_creacion_buckets
+ImportError: cannot import name 'run_creacion_buckets' from 'crear_buckets_minio' (/opt/airflow/project/infraestructura/crear_buckets_minio.py)
+[2025-05-16T21:44:58.553+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:44:58.569+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/creacion_buckets_minio.py took 0.213 seconds
+[2025-05-16T21:45:28.707+0000] {processor.py:161} INFO - Started process (PID=257) to work on /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:45:28.708+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/creacion_buckets_minio.py for tasks to queue
+[2025-05-16T21:45:28.709+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:45:28.709+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:45:28.888+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:45:28.885+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/creacion_buckets_minio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/creacion_buckets_minio.py", line 6, in <module>
+    from crear_buckets_minio import run_creacion_buckets
+ImportError: cannot import name 'run_creacion_buckets' from 'crear_buckets_minio' (/opt/airflow/project/infraestructura/crear_buckets_minio.py)
+[2025-05-16T21:45:28.889+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:45:28.902+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/creacion_buckets_minio.py took 0.199 seconds
+[2025-05-16T21:45:59.039+0000] {processor.py:161} INFO - Started process (PID=262) to work on /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:45:59.040+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/creacion_buckets_minio.py for tasks to queue
+[2025-05-16T21:45:59.041+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:45:59.041+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:45:59.225+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:45:59.222+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/creacion_buckets_minio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/creacion_buckets_minio.py", line 6, in <module>
+    from crear_buckets_minio import run_creacion_buckets
+ImportError: cannot import name 'run_creacion_buckets' from 'crear_buckets_minio' (/opt/airflow/project/infraestructura/crear_buckets_minio.py)
+[2025-05-16T21:45:59.226+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:45:59.239+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/creacion_buckets_minio.py took 0.204 seconds
+[2025-05-16T21:46:29.377+0000] {processor.py:161} INFO - Started process (PID=267) to work on /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:46:29.377+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/creacion_buckets_minio.py for tasks to queue
+[2025-05-16T21:46:29.378+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:46:29.378+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:46:29.559+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:46:29.556+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/creacion_buckets_minio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/creacion_buckets_minio.py", line 6, in <module>
+    from crear_buckets_minio import run_creacion_buckets
+ImportError: cannot import name 'run_creacion_buckets' from 'crear_buckets_minio' (/opt/airflow/project/infraestructura/crear_buckets_minio.py)
+[2025-05-16T21:46:29.559+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:46:29.575+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/creacion_buckets_minio.py took 0.202 seconds
+[2025-05-16T21:46:59.703+0000] {processor.py:161} INFO - Started process (PID=272) to work on /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:46:59.703+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/creacion_buckets_minio.py for tasks to queue
+[2025-05-16T21:46:59.704+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:46:59.704+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:46:59.883+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:46:59.881+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/creacion_buckets_minio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/creacion_buckets_minio.py", line 6, in <module>
+    from crear_buckets_minio import run_creacion_buckets
+ImportError: cannot import name 'run_creacion_buckets' from 'crear_buckets_minio' (/opt/airflow/project/infraestructura/crear_buckets_minio.py)
+[2025-05-16T21:46:59.884+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:46:59.898+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/creacion_buckets_minio.py took 0.200 seconds
+[2025-05-16T21:47:30.033+0000] {processor.py:161} INFO - Started process (PID=277) to work on /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:47:30.034+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/creacion_buckets_minio.py for tasks to queue
+[2025-05-16T21:47:30.035+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:47:30.035+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:47:30.228+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:47:30.225+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/creacion_buckets_minio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/creacion_buckets_minio.py", line 6, in <module>
+    from crear_buckets_minio import run_creacion_buckets
+ImportError: cannot import name 'run_creacion_buckets' from 'crear_buckets_minio' (/opt/airflow/project/infraestructura/crear_buckets_minio.py)
+[2025-05-16T21:47:30.229+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:47:30.242+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/creacion_buckets_minio.py took 0.212 seconds
+[2025-05-16T21:47:45.110+0000] {processor.py:161} INFO - Started process (PID=282) to work on /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:47:45.111+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/creacion_buckets_minio.py for tasks to queue
+[2025-05-16T21:47:45.112+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:47:45.112+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:47:45.313+0000] {logging_mixin.py:188} INFO - [2025-05-16T21:47:45.311+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/creacion_buckets_minio.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/creacion_buckets_minio.py", line 10, in <module>
+    from infraestructura.crear_buckets_minio import run_creacion_buckets
+ImportError: cannot import name 'run_creacion_buckets' from 'infraestructura.crear_buckets_minio' (/opt/airflow/project/infraestructura/crear_buckets_minio.py)
+[2025-05-16T21:47:45.314+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/creacion_buckets_minio.py
+[2025-05-16T21:47:45.328+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/creacion_buckets_minio.py took 0.221 seconds

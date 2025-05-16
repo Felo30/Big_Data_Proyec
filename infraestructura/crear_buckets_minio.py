@@ -1,11 +1,10 @@
-# %%
 """
 ================================================================================
 Nombre del Script: crear_buckets_minio.py
 Autor: Félix Cárdenas
 Fecha de Creación: 2024-05-08
-Última Modificación: 2024-05-08
-Versión: 1.1.0
+Última Modificación: 2025-05-16
+Versión: 1.2.0
 
 Descripción:
 Este script crea los buckets necesarios en MinIO para soportar la arquitectura
@@ -15,14 +14,18 @@ por capas de un Data Lake:
 - dev-diamond: datos validados o enriquecidos
 - dev-gold: datos listos para consumo analítico
 
+Uso:
+- Directamente en notebook o script (llamando a run_creacion_buckets())
+- Importado desde un DAG de Airflow como PythonOperator
+
 Dependencias:
 - Python >= 3.8
 - Librerías: boto3, python-dotenv
+================================================================================
 """
 
-# %%
 # ================================================================================
-# PASO 1: SECCIÓN DE IMPORTACIÓN DE LIBRERÍAS
+# PASO 1: IMPORTACIÓN DE LIBRERÍAS
 # ================================================================================
 import os
 import sys
@@ -31,11 +34,10 @@ from dotenv import load_dotenv
 import boto3
 from botocore.exceptions import ClientError
 
-# %%
 # ================================================================================
-# PASO 2: CONFIGURACIÓN DE VARIABLES DE ENTORNO
+# PASO 2: CARGA VARIABLES DE ENTORNO (.env)
 # ================================================================================
-load_dotenv("/home/jovyan/.env")
+load_dotenv("/opt/airflow/.env")  # compatible con DAGs en contenedor
 
 MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT")
 MINIO_ACCESS_KEY = os.getenv("MINIO_ROOT_USER")
@@ -48,18 +50,19 @@ BUCKETS = [
     os.getenv("MINIO_BUCKET_GOLD")
 ]
 
-# Configuración del logging
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+# ================================================================================
+# PASO 3: CONFIGURACIÓN DE LOGGING
+# ================================================================================
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 logger = logging.getLogger(__name__)
 
-
-# %%
 # ================================================================================
-# PASO 3: DECLARACIÓN DE FUNCIONES
+# PASO 4: FUNCIONES
 # ================================================================================
 
-# Función Crea un solo bucket en MinIO si no existe previamente.
 def crear_bucket(bucket_name: str) -> None:
     """
     Crea un bucket en MinIO si no existe.
@@ -73,40 +76,43 @@ def crear_bucket(bucket_name: str) -> None:
         aws_access_key_id=MINIO_ACCESS_KEY,
         aws_secret_access_key=MINIO_SECRET_KEY
     )
+
     try:
         s3.head_bucket(Bucket=bucket_name)
-        logger.info(f"El bucket '{bucket_name}' ya existe.")
+        logger.info(f"✅ El bucket '{bucket_name}' ya existe.")
     except ClientError as e:
         error_code = int(e.response["Error"]["Code"])
         if error_code == 404:
             s3.create_bucket(Bucket=bucket_name)
-            logger.info(f"Bucket '{bucket_name}' creado.")
+            logger.info(f"📦 Bucket '{bucket_name}' creado.")
         else:
-            logger.error(f"Error al crear/verificar bucket '{bucket_name}': {e}")
+            logger.error(f"❌ Error al verificar/crear bucket '{bucket_name}': {e}")
             sys.exit(1)
 
-# Función Recorre una lista de buckets y los crea si no existen.
 def crear_todos_los_buckets(buckets: list) -> None:
     """
-    Crea todos los buckets listados si no existen.
-    
+    Crea todos los buckets definidos en la lista.
+
     Parámetros:
     - buckets (list): lista de nombres de buckets
     """
-    logger.info("Iniciando creación de buckets...")
+    logger.info("🚀 Iniciando proceso de creación de buckets...")
     for bucket in buckets:
         if bucket:
             crear_bucket(bucket)
         else:
-            logger.warning("Nombre de bucket no definido en .env")
+            logger.warning("⚠️ Bucket no definido en archivo .env.")
+    logger.info("✅ Proceso de creación de buckets finalizado.")
 
-# %%
+def run_creacion_buckets():
+    """
+    Función principal para ejecutar desde Airflow (PythonOperator).
+    """
+    logger.info("🔁 Ejecutando run_creacion_buckets desde Airflow...")
+    crear_todos_los_buckets(BUCKETS)
+
 # ================================================================================
-# PASO 4: EJECUCIÓN DEL SCRIPT
+# PASO 5: EJECUCIÓN DIRECTA (Notebook o Script)
 # ================================================================================
 if __name__ == '__main__':
-    logger.info("Comenzando ejecución del script crear_buckets_minio.py")
-    crear_todos_los_buckets(BUCKETS)
-    logger.info("Todos los buckets fueron verificados o creados correctamente.")
-
-
+    run_creacion_buckets()
