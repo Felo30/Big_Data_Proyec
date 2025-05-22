@@ -79,14 +79,14 @@ def crear_bucket(bucket_name: str) -> None:
 
     try:
         s3.head_bucket(Bucket=bucket_name)
-        logger.info(f"✅ El bucket '{bucket_name}' ya existe.")
+        logger.info(f"El bucket '{bucket_name}' ya existe.")
     except ClientError as e:
         error_code = int(e.response["Error"]["Code"])
         if error_code == 404:
             s3.create_bucket(Bucket=bucket_name)
-            logger.info(f"📦 Bucket '{bucket_name}' creado.")
+            logger.info(f"Bucket '{bucket_name}' creado.")
         else:
-            logger.error(f"❌ Error al verificar/crear bucket '{bucket_name}': {e}")
+            logger.error(f"Error al verificar/crear bucket '{bucket_name}': {e}")
             sys.exit(1)
 
 def crear_todos_los_buckets(buckets: list) -> None:
@@ -96,19 +96,19 @@ def crear_todos_los_buckets(buckets: list) -> None:
     Parámetros:
     - buckets (list): lista de nombres de buckets
     """
-    logger.info("🚀 Iniciando proceso de creación de buckets...")
+    logger.info("Iniciando proceso de creación de buckets...")
     for bucket in buckets:
         if bucket:
             crear_bucket(bucket)
         else:
-            logger.warning("⚠️ Bucket no definido en archivo .env.")
-    logger.info("✅ Proceso de creación de buckets finalizado.")
+            logger.warning("Bucket no definido en archivo .env.")
+    logger.info("Proceso de creación de buckets finalizado.")
 
 def run_creacion_buckets():
     """
     Función principal para ejecutar desde Airflow (PythonOperator).
     """
-    logger.info("🔁 Ejecutando run_creacion_buckets desde Airflow...")
+    logger.info("Ejecutando run_creacion_buckets desde Airflow...")
     crear_todos_los_buckets(BUCKETS)
 
 # ================================================================================

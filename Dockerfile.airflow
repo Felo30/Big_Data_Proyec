@@ -1,0 +1,41 @@
+# Imagen base oficial de Airflow con Python 3.11
+FROM apache/airflow:2.9.1-python3.11
+
+######################################
+# [1] Instalar dependencias del sistema
+#######################################
+USER root
+RUN apt-get update && apt-get install -y \
+    default-jdk \
+    curl && \
+    apt-get clean
+
+##########################################
+# [2] JARs para Spark (MinIO y PostgreSQL)
+##########################################
+RUN mkdir -p /usr/local/spark/jars && \
+    curl -L -o /usr/local/spark/jars/postgresql-42.7.3.jar \
+        https://jdbc.postgresql.org/download/postgresql-42.7.3.jar && \
+    curl -L -o /usr/local/spark/jars/hadoop-aws-3.3.4.jar \
+        https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.4/hadoop-aws-3.3.4.jar && \
+    curl -L -o /usr/local/spark/jars/aws-java-sdk-bundle-1.11.901.jar \
+        https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.901/aws-java-sdk-bundle-1.11.901.jar
+
+##############################
+# [3] Volver al usuario airflow
+###############################
+USER airflow
+
+######################################
+# [4] Instalar dependencias de Python
+#####################################
+RUN pip install --no-cache-dir \
+    pandas \
+    sqlalchemy \
+    psycopg2-binary \
+    boto3 \
+    python-dotenv \
+    ipykernel \
+    pyspark \
+    findspark \
+    pyarrow
