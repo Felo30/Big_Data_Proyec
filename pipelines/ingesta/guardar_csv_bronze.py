@@ -18,6 +18,7 @@ en un DAG de Airflow.
 Dependencias:
 - Python >= 3.8
 - pyspark, python-dotenv
+================================================================================
 """
 
 # PASO 1: IMPORTACIONES
@@ -25,7 +26,16 @@ import os
 from datetime import datetime
 from pathlib import Path
 from dotenv import load_dotenv
+
+# PASO 1.5: Configurar entorno para Spark (antes de importar pyspark)
+os.environ["SPARK_HOME"] = "/opt/spark"
+os.environ["PYSPARK_PYTHON"] = "python3"
+os.environ["PYSPARK_DRIVER_PYTHON"] = "python3"
+os.environ["PYTHONPATH"] = "/opt/spark/python:/opt/spark/python/lib/py4j-0.10.9.7-src.zip"
+
+# PASO 1.6: Recién ahora importar Spark
 from pyspark.sql import SparkSession
+
 
 # PASO 2: FUNCIÓN PRINCIPAL
 def run_guardar_csv_bronze():

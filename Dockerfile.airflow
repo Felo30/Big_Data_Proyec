@@ -20,11 +20,17 @@ RUN curl -L -O https://archive.apache.org/dist/spark/spark-3.5.0/spark-3.5.0-bin
     ln -s /opt/spark-3.5.0-bin-hadoop3 /opt/spark && \
     rm spark-3.5.0-bin-hadoop3.tgz
 
+#######################################
+# [3] Variables de entorno de Spark
+#######################################
 ENV SPARK_HOME=/opt/spark
 ENV PATH=$PATH:/opt/spark/bin
+ENV PYSPARK_PYTHON=python3
+ENV PYSPARK_DRIVER_PYTHON=python3
+ENV PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.9.7-src.zip
 
 ##########################################
-# [3] JARs para Spark (PostgreSQL y S3/MinIO)
+# [4] JARs para Spark (PostgreSQL y S3/MinIO)
 ##########################################
 RUN mkdir -p /usr/local/spark/jars && \
     curl -L -o /usr/local/spark/jars/postgresql-42.7.3.jar \
@@ -35,11 +41,15 @@ RUN mkdir -p /usr/local/spark/jars && \
         https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.901/aws-java-sdk-bundle-1.11.901.jar
 
 #############################################
-# [4] Instalar librerías de Python necesarias
+# [5] Instalar librerías de Python necesarias
 #############################################
 USER airflow
 
+# Asegura que el binario de Airflow esté en el PATH
+ENV PATH="$PATH:/home/airflow/.local/bin"
+
 RUN pip install --no-cache-dir \
+    apache-airflow==2.9.1 \
     pandas \
     sqlalchemy \
     psycopg2-binary \

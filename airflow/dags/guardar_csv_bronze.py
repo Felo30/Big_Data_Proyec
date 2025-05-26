@@ -20,7 +20,7 @@ with DAG(
     dag_id="dag_guardar_csv_bronze",
     default_args=default_args,
     description="Guarda el CSV crudo en el bucket BRONZE de MinIO usando Spark",
-    schedule_interval=None,  # lo ejecutás manualmente
+    schedule_interval=None,  # (lo ejecutamos manualmente)
     catchup=False,
     tags=["bronze", "minio", "spark"],
 ) as dag:

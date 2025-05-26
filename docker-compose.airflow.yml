@@ -1,8 +1,17 @@
 ###############################
-# Servicio: PostgreSQL Airflow
+# Volúmenes
+###############################
+volumes:
+  airflow_pgdata:
+
+###############################
+# Servicios
 ###############################
 services:
 
+  ###############################
+  # Servicio: PostgreSQL (metastore de Airflow)
+  ###############################
   postgres_airflow:
     image: postgres:15
     container_name: postgres_airflow
@@ -17,23 +26,58 @@ services:
     networks:
       - red_bigdata
 
-###############################
-# Servicio: Apache Airflow
-###############################
-  airflow:
-    build:
-      context: .
-      dockerfile: Dockerfile.airflow
-    image: airflow:2.9.1-spark-client
-    container_name: airflow_bigdata
-    restart: unless-stopped
+  ###############################
+  # Servicio: Inicialización de Airflow (db + usuario admin)
+  ###############################
+  airflow_init:
+    image: bigdata_airflow:2.9.1-spark-client   # ✅ usar la imagen ya construida
+    container_name: airflow_init
     depends_on:
       - postgres_airflow
+    entrypoint: >
+      bash -c "
+        airflow db init &&
+        airflow users create
+          --username admin
+          --firstname Felix
+          --lastname Cardenas
+          --role Admin
+          --email felix@admin.com
+          --password admin
+      "
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres_airflow:5432/airflow
-      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
       AIRFLOW__CORE__FERNET_KEY: ""
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW_HOME: /opt/airflow
+      AIRFLOW_UID: 50000
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./.env:/opt/airflow/.env:ro
+      - ./:/opt/airflow/project
+    networks:
+      - red_bigdata
+
+  ###############################
+  # Servicio: Airflow Webserver (interfaz)
+  ###############################
+  airflow_webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    image: bigdata_airflow:2.9.1-spark-client   # ✅ build y nombre personalizado
+    container_name: airflow_webserver
+    restart: unless-stopped
+    depends_on:
+      - postgres_airflow
+    command: webserver
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres_airflow:5432/airflow
+      AIRFLOW__CORE__FERNET_KEY: ""
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
       AIRFLOW_HOME: /opt/airflow
       AIRFLOW_UID: 50000
       _AIRFLOW_WWW_USER_CREATE: "true"
@@ -46,21 +90,35 @@ services:
       - ./airflow/logs:/opt/airflow/logs
       - ./.env:/opt/airflow/.env:ro
       - ./:/opt/airflow/project
-    command: >
-      bash -c "
-        airflow db upgrade &&
-        airflow users create
-          --username admin --password admin
-          --firstname Admin --lastname User
-          --role Admin --email admin@example.com &&
-        airflow scheduler & exec airflow webserver
-      "
     networks:
       - red_bigdata
 
-volumes:
-  airflow_pgdata:
-
+  ###############################
+  # Servicio: Airflow Scheduler (ejecuta DAGs)
+  ###############################
+  airflow_scheduler:
+    image: bigdata_airflow:2.9.1-spark-client   # ✅ usar la imagen ya construida, sin build
+    container_name: airflow_scheduler
+    restart: unless-stopped
+    depends_on:
+      - postgres_airflow
+    command: scheduler
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres_airflow:5432/airflow
+      AIRFLOW__CORE__FERNET_KEY: ""
+      AIRFLOW_HOME: /opt/airflow
+      AIRFLOW_UID: 50000
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./.env:/opt/airflow/.env:ro
+      - ./:/opt/airflow/project
+    networks:
+      - red_bigdata
+###############################
+# Red compartida
+###############################
 networks:
   red_bigdata:
     external: true
