@@ -4,6 +4,6 @@ __pycache__/
 *.log
 airflow/logs/
 airflow/dags/__pycache__/
-infraestructura/__pycache__/
 # Logs de Airflow
 airflow/logs/
+infraestructura/__pycache__/

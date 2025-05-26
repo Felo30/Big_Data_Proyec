@@ -29,9 +29,9 @@ from pyspark.sql import SparkSession
 
 # PASO 2: FUNCIÓN PRINCIPAL
 def run_guardar_csv_bronze():
-    load_dotenv("/home/jovyan/.env")
+    load_dotenv("/opt/airflow/.env")
 
-    ruta_csv_local     = "/home/jovyan/datos/csv/pacientes_crudo.csv"
+    ruta_csv_local = "/opt/airflow/project/datos/csv/pacientes_crudo.csv"
     MINIO_ENDPOINT     = os.getenv("MINIO_ENDPOINT")
     MINIO_ACCESS_KEY   = os.getenv("MINIO_ROOT_USER")
     MINIO_SECRET_KEY   = os.getenv("MINIO_ROOT_PASSWORD")
