@@ -1,0 +1,101 @@
+id,nombre,edad,obra_social,fecha_turno
+1,Calista Teresita Rocha Rey,88,Swiss Medical,2025-01-04 10:20:29
+2,Carlota del Valera,34,Medifé,2024-11-22 23:31:58
+3,Samanta Gárate Vázquez,28,Swiss Medical,2025-04-07 07:49:00
+4,Erasmo Portillo-Manuel,80,Medifé,2025-04-01 15:26:12
+5,Eloy Prado Goñi,61,Medifé,2025-07-03 17:41:53
+6,Isaac Ciro Girón Colom,50,OSDE,2024-11-15 14:26:35
+7,Teodora Cañellas Rivas,50,PAMI,2024-10-17 17:15:06
+8,Severo Castilla-Gilabert,37,PAMI,2025-07-21 05:47:01
+9,Susana Barrena Cisneros,100,OSDE,2025-05-17 03:47:39
+10,María Teresa Tomé Madrid,95,PAMI,2024-08-30 08:48:03
+11,Jose Francisco Corominas Morera,72,PAMI,2025-07-12 06:05:09
+12,Cebrián Aureliano Guillén Novoa,62,Medifé,2025-05-20 05:26:05
+13,Bárbara Aguiló Ferrándiz,67,Medifé,2024-12-11 18:40:13
+14,Marco Zurita,89,PAMI,2024-12-21 11:15:28
+15,Zacarías Iniesta Ferrero,21,Galeno,2024-08-12 04:26:37
+16,Rafaela Casas Urrutia,55,Swiss Medical,2024-11-07 22:42:12
+17,Tomasa de Blasco,54,OSDE,2024-09-04 09:49:27
+18,Leocadio Luz Amador,54,OSDE,2025-01-05 06:33:27
+19,Efraín Soler Amores,73,Galeno,2025-06-28 19:27:13
+20,Gonzalo Cadenas Sala,4,Medifé,2025-02-14 14:06:14
+21,Jose Ramón Darío Carpio Carvajal,11,IOMA,2024-09-27 11:15:02
+22,Julia Barba-Canet,21,IOMA,2025-03-28 03:03:24
+23,Graciano Villegas Navarrete,86,Medifé,2025-06-22 21:01:52
+24,Arcelia Fonseca Barros,35,Galeno,2024-08-14 22:36:03
+25,Marianela Montaña Infante,78,IOMA,2024-10-20 13:46:27
+26,Andrea Coll Mate,26,Galeno,2025-02-25 20:00:01
+27,Fabiana Navas-Iglesias,21,Galeno,2025-01-06 04:30:32
+28,Felicidad Ponce-Linares,6,Galeno,2025-04-18 21:11:33
+29,Édgar Tomás Hernando,41,Sancor Salud,2024-09-11 02:12:59
+30,Ignacia Franch,72,IOMA,2024-10-12 04:28:21
+31,Rosaura Ruano Posada,50,Swiss Medical,2024-12-22 00:31:38
+32,Jerónimo Costa Mendizábal,73,Galeno,2025-01-20 08:48:03
+33,Hernán del Barberá,82,Sancor Salud,2025-07-18 15:08:56
+34,Dalila Cueto Aranda,40,PAMI,2025-04-22 16:30:08
+35,Begoña Sainz Pinedo,16,Swiss Medical,2025-03-14 16:11:03
+36,Arsenio Camacho Alberola,92,IOMA,2025-07-08 23:44:03
+37,Concha Velázquez Cases,70,Medifé,2025-05-07 01:02:26
+38,Reyes Carnero Cordero,82,OSDE,2024-09-30 05:10:32
+39,Josep Carbajo Carrillo,93,PAMI,2025-01-12 04:04:12
+40,Tristán Feijoo Pérez,26,Galeno,2025-03-29 14:41:43
+41,Manu Beltrán Reig,47,Galeno,2025-07-08 11:59:23
+42,Damián Becerra,78,OSDE,2025-05-21 16:18:50
+43,Julia Borrego Borrego,85,Swiss Medical,2025-03-18 11:03:59
+44,Marina Calatayud Cabo,18,Swiss Medical,2024-08-14 22:33:32
+45,Corona Áurea Barreda Mulet,19,PAMI,2025-02-20 12:51:41
+46,Maribel del Cuevas,38,PAMI,2025-06-12 09:18:40
+47,Melchor Guerra Mate,59,Medifé,2025-04-10 14:29:34
+48,Violeta Arco Garcés,7,OSDE,2024-12-14 22:31:56
+49,Dalila Quintana Delgado,53,Swiss Medical,2025-02-14 00:59:20
+50,Emilia Gonzalez Chico,98,PAMI,2024-09-16 03:03:40
+51,Luciano Amigó Román,57,OSDE,2025-07-22 23:57:56
+52,Yaiza Verdejo Crespo,9,Swiss Medical,2025-03-14 08:21:20
+53,Nilda Fernanda Miralles Morante,76,IOMA,2024-11-22 09:54:48
+54,Ligia Jurado Lamas,28,IOMA,2025-06-12 21:18:47
+55,Narciso Gisbert Real,41,Galeno,2025-03-23 06:20:00
+56,Chuy Miguel Ángel Perales Toro,38,Swiss Medical,2025-06-10 12:33:28
+57,Artemio Sabater Carvajal,32,Galeno,2024-12-05 08:53:07
+58,Juan Bautista Seguí-Pazos,11,Sancor Salud,2024-10-17 22:47:18
+59,Arsenio Cipriano Gargallo Larrea,68,Medifé,2025-02-15 09:30:23
+60,Mirta Uribe Palacio,52,Sancor Salud,2025-04-03 13:16:05
+61,Belen Cayetana Arregui Águila,87,Medifé,2025-03-26 14:54:55
+62,Jose Manuel Felipe Alfonso Castells,46,OSDE,2024-11-08 02:14:40
+63,Candelaria Barco Benitez,48,PAMI,2025-07-25 13:50:49
+64,Felicidad Gomis Ponce,50,IOMA,2025-07-11 09:15:53
+65,Reinaldo Amador Quintanilla,51,IOMA,2024-08-16 14:13:52
+66,Jose Manuel,83,Galeno,2025-04-17 15:09:37
+67,Octavio Jaén Borja,75,Medifé,2025-06-24 01:59:05
+68,Apolinar Nevado Gomila,64,Medifé,2024-12-12 17:55:17
+69,Marcelo Galvez,16,Sancor Salud,2024-08-22 09:45:40
+70,Zoraida Nieto Trillo,5,PAMI,2024-11-01 17:08:56
+71,Florina Maxi Montalbán Álvaro,60,Swiss Medical,2024-10-11 05:55:34
+72,Carina Camino Ariño,77,IOMA,2025-07-26 14:35:18
+73,Angelino Riba Roselló,5,Swiss Medical,2025-06-04 23:18:17
+74,Jordi Busquets Martín,80,OSDE,2025-05-10 05:45:22
+75,Mar Solís Puig,36,OSDE,2024-12-23 04:42:46
+76,Sarita Valbuena Iñiguez,26,Sancor Salud,2025-01-07 09:11:26
+77,Javiera Aragonés-Feijoo,2,OSDE,2025-06-26 05:45:30
+78,Alejandro Ledesma Martinez,5,Galeno,2024-10-13 19:01:33
+79,María Teresa Fábregas Méndez,77,PAMI,2024-09-19 05:25:39
+80,Lorenzo Marí Marín,1,Medifé,2024-09-18 18:25:42
+81,Rufina Goñi Hernández,15,OSDE,2025-06-24 05:49:12
+82,Angélica Palacios Arellano,73,Swiss Medical,2024-10-24 05:39:03
+83,Chita Aznar Solé,58,Medifé,2024-10-03 20:48:12
+84,Esteban Murillo Santamaría,70,IOMA,2025-06-23 14:51:49
+85,Marcelino Maximiano Amorós Coronado,47,OSDE,2025-07-27 22:57:27
+86,Encarnita Agullo,66,Galeno,2025-05-24 08:21:56
+87,Asdrubal Solís-Reyes,64,IOMA,2025-07-27 12:12:52
+88,Leire Lluch Monreal,41,Swiss Medical,2024-11-23 00:35:37
+89,Maxi Zapata Caro,4,OSDE,2025-02-19 07:59:38
+90,Ciriaco Pons-Fuertes,27,Swiss Medical,2025-01-08 15:28:48
+91,Lina de Uribe,74,Galeno,2025-04-13 04:57:44
+92,Iris de Plaza,61,PAMI,2024-12-05 15:48:06
+93,Milagros Escobar Pozuelo,86,OSDE,2024-10-28 01:05:32
+94,Marcela de Heras,30,IOMA,2025-06-07 18:02:45
+95,Ernesto Nuñez Goicoechea,37,OSDE,2025-06-07 00:44:49
+96,Mireia Barón Bilbao,23,Swiss Medical,2025-07-12 21:25:48
+97,Bernardino Macías,75,OSDE,2025-03-07 22:00:54
+98,Iker Benitez Fuster,34,Medifé,2024-12-03 13:00:50
+99,Hernando Elorza,51,Swiss Medical,2024-11-06 03:03:38
+100,Martirio del Giménez,62,Sancor Salud,2025-01-13 11:02:18
